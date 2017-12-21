@@ -60,7 +60,7 @@ bindsym $mod+Shift+q kill
 # Open nautilus
 bindsym $mod+e exec nautilus
 bindsym $mod+t exec gedit
-bindsym $mod+k exec enpass
+bindsym $mod+n exec enpass
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run
