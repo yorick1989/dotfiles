@@ -58,8 +58,9 @@ bindsym $mod+Return exec /usr/bin/terminator
 bindsym $mod+Shift+q kill
 
 # Open nautilus
-bindsym $mod+e exec /usr/bin/nautilus
-bindsym $mod+t exec /usr/bin/gedit
+bindsym $mod+e exec nautilus
+bindsym $mod+t exec gedit
+bindsym $mod+k exec enpass
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run
