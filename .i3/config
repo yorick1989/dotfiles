@@ -105,6 +105,8 @@ bindsym XF86AudioLowerVolume exec amixer -c $acard sset Master '2%-'
 bindsym XF86AudioMute        exec amixer -c $acard sset Master toggle
 bindsym XF86AudioMicMute     exec amixer -c $acard sset Capture toggle
 
+bindsym $mod+Shift+s exec --no-startup-id exec ${HOME}/.i3/scripts/monitor "$display0" "$display1"
+
 # split in horizontal orientation
 bindsym $mod+h split h
 
