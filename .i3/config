@@ -19,8 +19,7 @@ set $mod   Mod4
 # set display variables
 set $display0 eDP-1
 set $display1 HDMI-2
-#set $display2 DP-1
-set $display2 HDMI-2
+set $display2 DP-1
 set $primary HDMI-2
 set $secondary eDP-1
 
@@ -105,7 +104,7 @@ bindsym XF86AudioLowerVolume exec amixer -c $acard sset Master '2%-'
 bindsym XF86AudioMute        exec amixer -c $acard sset Master toggle
 bindsym XF86AudioMicMute     exec amixer -c $acard sset Capture toggle
 
-bindsym $mod+Shift+s exec --no-startup-id exec ${HOME}/.i3/scripts/monitor "$display0" "$display1"
+bindsym $mod+Shift+s exec --no-startup-id exec ${HOME}/.i3/scripts/monitor "$primary" "$secondary"
 
 # split in horizontal orientation
 bindsym $mod+h split h
@@ -291,10 +290,11 @@ bar {
 }
 
 # application settings
-assign [instance="terminator"] 		$ws1
-assign [instance="Navigator"] 		$ws2
-assign [instance="Pidgin"] 		    $ws3
-assign [instance="Mail"]      		$ws11
+#assign [instance="terminator"] 		  $ws1
+assign [instance="Gnome-terminal"]  $ws1
+assign [instance="Navigator"] 		  $ws2
+assign [instance="Pidgin"] 		      $ws3
+assign [instance="Mail"]      		  $ws11
 
 for_window [class="Skype"]                                      floating enable, border normal
 for_window [class="skypeforlinux"]                              floating enable, border normal
@@ -304,7 +304,7 @@ for_window [class="Nautilus"]                                   floating enable,
 for_window [class="Gedit"]                                      floating enable, border normal
 
 # Exec application
-exec --no-startup-id /usr/bin/terminator
+#exec --no-startup-id /usr/bin/terminator
 exec --no-startup-id /usr/bin/firefox
 exec --no-startup-id /usr/bin/pidgin
 exec --no-startup-id /usr/bin/thunderbird
