@@ -23,11 +23,11 @@ set $mod   Mod4
 
 # set display variables
 set $display0 eDP-1
-set $display1 HDMI-2
+set $display1 HDMI-1
 set $display2 DP-1
 
 set $primary eDP-1
-set $secondary HDMI-2
+set $secondary HDMI-1
 
 # Name workspaces
 set $ws11 "11:11 Terminal"
@@ -228,7 +228,7 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # lock screen
-bindsym $mod+l exec --no-startup-id "/usr/bin/i3lock -beft -i ~/.i3/Pictures/lock -t -f -I 10 --color='#010101'"
+bindsym $mod+l exec --no-startup-id "/usr/bin/i3lock -beft -i ~/.i3/Pictures/lock -t -f -I 10 --color='#010101';/usr/bin/feh --bg-fill ~/.i3/Pictures/bg"
 bindsym $mod+$shift+Pause	exec i3-msg exit
 bindsym $mod+Pause exec --no-startup-id "/usr/bin/i3lock -c 000000 && systemctl suspend"
 bindsym $ctrl+$alt+$del exec ~/.i3/blocks/shutdown_menu -c
@@ -321,3 +321,6 @@ exec --no-startup-id xsetroot -solid "#333333"
 
 # Restore GNOME's settings
 exec --no-startup-id /usr/bin/gnome-keyring-daemon
+
+# Set keyboard settings
+exec --no-startup-id "setxkbmap -model pc105 -layout us -option 'grp:alt_shift_toggle' -variant euro"
