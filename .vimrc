@@ -1,6 +1,7 @@
 set backspace=indent,eol,start
 set mouse=c
 set hlsearch
+set autoindent
 set expandtab
 "set number"
 retab
