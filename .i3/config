@@ -233,9 +233,15 @@ bindsym $mod+$shift+Pause	exec i3-msg exit
 bindsym $mod+Pause exec --no-startup-id "/usr/bin/i3lock -c 000000 && systemctl suspend"
 bindsym $ctrl+$alt+$del exec ~/.i3/blocks/shutdown_menu -c
 
+bindsym XF86MonBrightnessUp   exec ~/.i3/bin/xbacklight -inc 5
+bindsym XF86MonBrightnessDown exec ~/.i3/bin/xbacklight -dec 5
+
+bindsym $ctrl+$mod+$tab exec --no-startup-id "setxkbmap -layout 'us,us' -variant ',dvorak' -option 'grp:alt_shift_toggle'"
+
 exec --no-startup-id /usr/bin/xsetroot -solid "#010101"
 exec --no-startup-id /usr/bin/xset -b
 exec --no-startup-id /usr/bin/feh --bg-fill ~/.i3/Pictures/bg
+exec --no-startup-id /usr/bin/dunst -config ~/.i3/dunstrc
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -300,13 +306,14 @@ bar {
 #assign [instance="terminator"] 		$ws1
 assign [instance="Gnome-terminal"]  $ws11
 assign [instance="Navigator"] 		  $ws12
-assign [instance="Pidgin"] 		      $ws13
+assign [instance="mattermost"]      $ws13
 assign [instance="Mail"]      		  $ws1
+assign [instance="evolution"]  		  $ws1
 
 for_window [class="Skype"]                                      floating enable, border normal
 for_window [class="skypeforlinux"]                              floating enable, border normal
 for_window [class="Enpass"]                                     floating enable, border normal
-for_window [class="Pidgin"]                                     floating enable, border normal
+for_window [class="mattermost"]                                 floating enable, border normal
 for_window [class="Nautilus"]                                   floating enable, border normal
 for_window [class="Gedit"]                                      floating enable, border normal
 
@@ -314,8 +321,8 @@ for_window [class="Gedit"]                                      floating enable,
 #exec --no-startup-id /usr/bin/terminator
 exec --no-startup-id /usr/bin/gnome-terminal -- "/usr/bin/tmux"
 exec --no-startup-id /usr/bin/firefox
-exec --no-startup-id /usr/bin/pidgin
-exec --no-startup-id /usr/bin/thunderbird
+exec --no-startup-id /opt/mattermost/mattermost-desktop
+exec --no-startup-id /usr/bin/evolution
 exec --no-startup-id /usr/bin/nm-applet
 exec --no-startup-id xsetroot -solid "#333333"
 
@@ -323,4 +330,4 @@ exec --no-startup-id xsetroot -solid "#333333"
 exec --no-startup-id /usr/bin/gnome-keyring-daemon
 
 # Set keyboard settings
-exec --no-startup-id "setxkbmap -model pc105 -layout us -option 'grp:alt_shift_toggle' -variant euro"
+exec --no-startup-id "setxkbmap -layout 'us' -variant '' -option 'grp:alt_shift_toggle'"
